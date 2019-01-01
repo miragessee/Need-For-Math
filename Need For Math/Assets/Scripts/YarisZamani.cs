@@ -211,7 +211,7 @@ public class YarisZamani : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsMasterClient == true)
             {
                 PhotonNetwork.AutomaticallySyncScene = true;
-                PhotonNetwork.LoadLevel(1);
+                PhotonNetwork.LoadLevel(2);
             }
         //}
         //else

@@ -37,6 +37,8 @@ public class Checkpoint : MonoBehaviour {
 
     public static Collider otherx;
 
+    public static int timeScalex;
+
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("SkillCollision");
@@ -84,7 +86,11 @@ public class Checkpoint : MonoBehaviour {
                     cevap = a - b;
                 }
 
+                //Time.timeScale = 0.00001f;
+
                 soruWindow.GetComponentInChildren<Animator>().Play("Exit Panel In");
+
+                timeScalex = 0;
 
                 /*int temp = Random.Range(0, 3);
 
@@ -130,13 +136,13 @@ public class Checkpoint : MonoBehaviour {
 
     public void SoruCevaplaClick()
     {
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
 
-        //int cevapInput = Int32.Parse(cevapInputField.GetComponent<InputField>().text);
+        int cevapInput = Int32.Parse(cevapInputField.GetComponent<InputField>().text);
 
-        if (true)
+        if (cevap == cevapInput)
         {
-            int temp = UnityEngine.Random.Range(0, 3);
+            /*int temp = UnityEngine.Random.Range(0, 3);
 
             if (temp == 0)
             {
@@ -173,8 +179,39 @@ public class Checkpoint : MonoBehaviour {
                     weapons[index].currentAmmo = 4;
                     weapons[index].bullet = bullet3;
                 }
-            }
+            }*/
+            StartCoroutine(ikiSaniye());
         }
+        else
+        {
+            StartCoroutine(dortSaniye());
+        }
+    }
+
+    IEnumerator ikiSaniye()
+    {
+        print("ikiSaniye");
+        //Time.timeScale = 1;
+        //soruWindow.GetComponent<CanvasGroup>().alpha = 0;
+        soruWindow.GetComponentInChildren<Animator>().Play("Exit Panel Out");
+        //soruWindow.gameObject.SetActive(false);
+        //Time.timeScale = 0.00001f;
+        //soruWindow.GetComponentInChildren<Button>().gameObject.SetActive(false);
+        yield return new WaitForSeconds(0.000001f);
+        Time.timeScale = 1;
+    }
+
+    IEnumerator dortSaniye()
+    {
+        print("dortSaniye");
+        //Time.timeScale = 1;
+        //soruWindow.GetComponent<CanvasGroup>().alpha = 0;
+        soruWindow.GetComponentInChildren<Animator>().Play("Exit Panel Out");
+        //soruWindow.gameObject.SetActive(false);
+        //Time.timeScale = 0.00001f;
+        //soruWindow.GetComponentInChildren<Button>().gameObject.SetActive(false);
+        yield return new WaitForSeconds(0.000001f);
+        Time.timeScale = 1;
     }
 
     private void OnTriggerStay(Collider other)
@@ -189,20 +226,22 @@ public class Checkpoint : MonoBehaviour {
 
     private void Update()
     {
-        if (soruWindow.GetComponent<CanvasGroup>().alpha == 1)
+        if (soruWindow.GetComponent<CanvasGroup>().alpha == 1 && timeScalex == 0)
         {
             if (soruWindow.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Exit Panel In") && soruWindow.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime > 1)
             {
+                print("timeScale 00001f");
                 Time.timeScale = 0.00001f;
+                timeScalex = 1;
             }
             else if(soruWindow.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Exit Panel Out"))
             {
-                Time.timeScale = 1;
+                //Time.timeScale = 1;
             }
         }
         else
         {
-            Time.timeScale = 1;
+            //Time.timeScale = 1;
         }
     }
 }

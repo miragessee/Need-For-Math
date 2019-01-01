@@ -165,10 +165,10 @@ public class PUNRaceManagerScript : MonoBehaviourPunCallbacks
     private void CreateCar()
     {
         // gets spawn Transform based on player join order (spawn property)
-        int pos = (int)PhotonNetwork.LocalPlayer.CustomProperties["spawn"];
-        int carNumber = (int)PhotonNetwork.LocalPlayer.CustomProperties["car"];
-        //int pos = 1;
-        //int carNumber = 0;
+        //int pos = (int)PhotonNetwork.LocalPlayer.CustomProperties["spawn"];
+        //int carNumber = (int)PhotonNetwork.LocalPlayer.CustomProperties["car"];
+        int pos = 1;
+        int carNumber = 0;
         Transform spawn = spawnPoints[pos];
 
         // instantiate car at Spawn Transform

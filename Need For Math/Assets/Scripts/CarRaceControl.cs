@@ -17,7 +17,7 @@ public class CarRaceControl : MonoBehaviourPunCallbacks, IComparable<CarRaceCont
 	public Checkpoint currentWaypoint;
 
 	public int lapsCompleted = 0;
-	public int totalLaps = 2;
+	public int totalLaps = 3;
 	public float distanceTraveled = 0;
 	public float raceTime = 0;
 	public int currentPosition = 5;

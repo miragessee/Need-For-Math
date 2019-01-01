@@ -1025,8 +1025,8 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 4248923741256814137}
-  viewIdField: 2
-  InstantiationId: 2
+  viewIdField: 7
+  InstantiationId: 7
   isRuntimeInstantiated: 0
 --- !u!114 &1305677459434608504
 MonoBehaviour:
@@ -1042,7 +1042,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentWaypoint: {fileID: 0}
   lapsCompleted: 0
-  totalLaps: 2
+  totalLaps: 3
   distanceTraveled: 0
   raceTime: 0
   currentPosition: 5
